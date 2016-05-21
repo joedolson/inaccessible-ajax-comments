@@ -1,6 +1,4 @@
-# accessible-ajax-comments
-Accessible AJAX Comments
+# inaccessible-ajax-comments
+Inaccessible AJAX Comments
 
-This is a plug-in derived from the Accessible AJAX comments library built for the WordPress Theme Accessibility Pattern Library (https://github.com/wpaccessibility/a11ythemepatterns/tree/master/comment-form-with-js-aria)
-
-Please make pull requests or raise issues in the WP Accessibility pattern library, unless the issues are specific to the plug-in implementation. 
+This is a demo plug-in designed to show the difference between creating a JavaScript different experience with accessibility in mind and...not. This is the inaccessible version. Don't use it.
