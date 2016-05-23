@@ -37,11 +37,11 @@ function aac_enqueue_scripts() {
 		wp_enqueue_style( 'aac.style', plugins_url( "/css/aac.css", __FILE__ ) );
 		wp_enqueue_script( 'aac.comments', plugins_url( "/js/comments.js", __FILE__ ), array('jquery'), '1.0.0', true );
 		$comment_i18n = array( 
-			'processing' => __( 'Processing...', 'accessible-ajax-comments' ),
-			'flood' => sprintf( __( 'Your comment was either a duplicate or you are posting too rapidly. <a href="%s">Edit your comment</a>', 'accessible-ajax-comments' ), '#comment' ),
-			'error' => __( 'There were errors in submitting your comment; complete the missing fields and try again!', 'accessible-ajax-comments' ),
-			'emailInvalid' => __( 'That email appears to be invalid.', 'accessible-ajax-comments' ),
-			'required' => __( 'This is a required field.', 'accessible-ajax-comments' )
+			'processing' => __( 'Processing...', 'inaccessible-ajax-comments' ),
+			'flood' => sprintf( __( 'Your comment was either a duplicate or you are posting too rapidly. <a href="%s">Edit your comment</a>', 'inaccessible-ajax-comments' ), '#comment' ),
+			'error' => __( 'There were errors in submitting your comment; complete the missing fields and try again!', 'inaccessible-ajax-comments' ),
+			'emailInvalid' => __( 'That email appears to be invalid.', 'inaccessible-ajax-comments' ),
+			'required' => __( 'This is a required field.', 'inaccessible-ajax-comments' )
 		);
 		wp_localize_script( 'aac.comments', 'aac', $comment_i18n );
 	}
@@ -66,7 +66,7 @@ function aac_ajax_comments( $comment_ID, $comment_status ) {
 				$return = array( 
 					'response' => '', 
 					'success'  => 1, 
-					'status'   => __( 'Your comment has been sent for moderation. It should be approved soon!', 'accessible-ajax-comments' ) 
+					'status'   => __( 'Your comment has been sent for moderation. It should be approved soon!', 'inaccessible-ajax-comments' ) 
 				);
 				wp_send_json( $return );
 				break;
@@ -81,7 +81,7 @@ function aac_ajax_comments( $comment_ID, $comment_status ) {
 								<footer class="comment-meta">
 								<div class="comment-author vcard">'.
 									get_avatar( $comment->comment_author_email )
-									.'<b class="fn">' . __( 'You said:', 'accessible-ajax-comments' ) . '</b> </div>
+									.'<b class="fn">' . __( 'You said:', 'inaccessible-ajax-comments' ) . '</b> </div>
 
 								<div class="comment-meta commentmetadata"><a href="#comment-'. $comment->comment_ID .'">' . 
 									get_comment_date( 'F j, Y \a\t g:i a', $comment->comment_ID ) .'</a>
@@ -102,7 +102,7 @@ function aac_ajax_comments( $comment_ID, $comment_status ) {
 				$return = array( 
 					'response'=>$output, 
 					'success' => 1, 
-					'status'=> sprintf( __( 'Thanks for commenting! Your comment has been approved. <a href="%s">Read your comment</a>', 'accessible-ajax-comments' ), "#comment-$comment_ID" ) 
+					'status'=> sprintf( __( 'Thanks for commenting! Your comment has been approved. <a href="%s">Read your comment</a>', 'inaccessible-ajax-comments' ), "#comment-$comment_ID" ) 
 				);
 				wp_send_json( $return );
 				break;
@@ -111,7 +111,7 @@ function aac_ajax_comments( $comment_ID, $comment_status ) {
 				$return = array( 
 					'response' => '', 
 					'success'  => 0, 
-					'status'   => __( 'There was an error posting your comment. Try again later!', 'accessible-ajax-comments' ) 
+					'status'   => __( 'There was an error posting your comment. Try again later!', 'inaccessible-ajax-comments' ) 
 				);
 				wp_send_json( $return );
 		}
