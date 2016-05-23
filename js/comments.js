@@ -83,7 +83,7 @@
 						/**
 						 * Because the successful comment message includes a link, should set focus to the message to give easy access to user.
 						 */						
-						statusdiv.html('<p class="aac-comment-success" >'+status+'</p>'));
+						statusdiv.html('<p class="aac-comment-success" >'+status+'</p>');
 						//alert(data);
 
 						if ( $( '#comments' ).has( "ol.commentlist" ).length > 0 ) {
